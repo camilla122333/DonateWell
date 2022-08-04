@@ -7,13 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9805F34B2894781000D3330D /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805F34A2894781000D3330D /* APICall.swift */; };
+		9805F3A3289B195D00D3330D /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805F3A2289B195D00D3330D /* ListView.swift */; };
+		9805F3A5289B198A00D3330D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805F3A4289B198A00D3330D /* DataManager.swift */; };
+		9805F3A7289B19D900D3330D /* Senate_Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805F3A6289B19D900D3330D /* Senate_Race.swift */; };
+		9869EC6E28937845008FF2C4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9869EC6D28937845008FF2C4 /* WelcomeView.swift */; };
+		9869EC702893954E008FF2C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9869EC6F2893954E008FF2C4 /* GoogleService-Info.plist */; };
+		9869EC732893A900008FF2C4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9869EC722893A900008FF2C4 /* FirebaseFirestore */; };
+		9869EC752893A901008FF2C4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9869EC742893A901008FF2C4 /* FirebaseStorage */; };
 		989F53AD28936F7F0096A5DB /* DonateWellApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989F53AC28936F7F0096A5DB /* DonateWellApp.swift */; };
-		989F53AF28936F7F0096A5DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989F53AE28936F7F0096A5DB /* ContentView.swift */; };
 		989F53B128936F810096A5DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 989F53B028936F810096A5DB /* Assets.xcassets */; };
 		989F53B428936F810096A5DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 989F53B328936F810096A5DB /* Preview Assets.xcassets */; };
+		989F53BC289377030096A5DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989F53AE28936F7F0096A5DB /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9805F34A2894781000D3330D /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
+		9805F3A2289B195D00D3330D /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		9805F3A4289B198A00D3330D /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		9805F3A6289B19D900D3330D /* Senate_Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Senate_Race.swift; sourceTree = "<group>"; };
+		9869EC6D28937845008FF2C4 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		9869EC6F2893954E008FF2C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		989F53A928936F7F0096A5DB /* DonateWell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DonateWell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		989F53AC28936F7F0096A5DB /* DonateWellApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateWellApp.swift; sourceTree = "<group>"; };
 		989F53AE28936F7F0096A5DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,12 +40,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9869EC732893A900008FF2C4 /* FirebaseFirestore in Frameworks */,
+				9869EC752893A901008FF2C4 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9805F349289477C300D3330D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				9805F34A2894781000D3330D /* APICall.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		989F53A028936F7F0096A5DB = {
 			isa = PBXGroup;
 			children = (
@@ -51,9 +75,12 @@
 		989F53AB28936F7F0096A5DB /* DonateWell */ = {
 			isa = PBXGroup;
 			children = (
+				9805F349289477C300D3330D /* API */,
+				989F53BA289373420096A5DB /* Views */,
 				989F53AC28936F7F0096A5DB /* DonateWellApp.swift */,
-				989F53AE28936F7F0096A5DB /* ContentView.swift */,
+				9805F3A6289B19D900D3330D /* Senate_Race.swift */,
 				989F53B028936F810096A5DB /* Assets.xcassets */,
+				9869EC6F2893954E008FF2C4 /* GoogleService-Info.plist */,
 				989F53B228936F810096A5DB /* Preview Content */,
 			);
 			path = DonateWell;
@@ -65,6 +92,17 @@
 				989F53B328936F810096A5DB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		989F53BA289373420096A5DB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				989F53AE28936F7F0096A5DB /* ContentView.swift */,
+				9869EC6D28937845008FF2C4 /* WelcomeView.swift */,
+				9805F3A2289B195D00D3330D /* ListView.swift */,
+				9805F3A4289B198A00D3330D /* DataManager.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +121,10 @@
 			dependencies = (
 			);
 			name = DonateWell;
+			packageProductDependencies = (
+				9869EC722893A900008FF2C4 /* FirebaseFirestore */,
+				9869EC742893A901008FF2C4 /* FirebaseStorage */,
+			);
 			productName = DonateWell;
 			productReference = 989F53A928936F7F0096A5DB /* DonateWell.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +153,9 @@
 				Base,
 			);
 			mainGroup = 989F53A028936F7F0096A5DB;
+			packageReferences = (
+				9869EC712893A900008FF2C4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 989F53AA28936F7F0096A5DB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +172,7 @@
 			files = (
 				989F53B428936F810096A5DB /* Preview Assets.xcassets in Resources */,
 				989F53B128936F810096A5DB /* Assets.xcassets in Resources */,
+				9869EC702893954E008FF2C4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +183,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				989F53AF28936F7F0096A5DB /* ContentView.swift in Sources */,
+				989F53BC289377030096A5DB /* ContentView.swift in Sources */,
+				9805F3A5289B198A00D3330D /* DataManager.swift in Sources */,
+				9805F3A7289B19D900D3330D /* Senate_Race.swift in Sources */,
+				9869EC6E28937845008FF2C4 /* WelcomeView.swift in Sources */,
+				9805F3A3289B195D00D3330D /* ListView.swift in Sources */,
+				9805F34B2894781000D3330D /* APICall.swift in Sources */,
 				989F53AD28936F7F0096A5DB /* DonateWellApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +388,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9869EC712893A900008FF2C4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9869EC722893A900008FF2C4 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9869EC712893A900008FF2C4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		9869EC742893A901008FF2C4 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9869EC712893A900008FF2C4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 989F53A128936F7F0096A5DB /* Project object */;
 }
