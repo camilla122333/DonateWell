@@ -1,0 +1,50 @@
+//
+//  Sample.json
+//  DonateWell
+//
+//  Created by Camilla B on 8/8/22.
+//
+
+import Foundation
+
+{
+    "id": 7017,
+    "name": "Which party will win the U.S. Senate election in North Carolina in 2022?",
+    "shortName": "Which party will win the NC Senate race?",
+    "image": "https://az620379.vo.msecnd.net/images/Markets/c19156e9-da04-4c68-bfcb-5c85b2761c86.png",
+    "url": "https://www.predictit.org/markets/detail/7017/Which-party-will-win-the-US-Senate-election-in-North-Carolina-in-2022",
+    "contracts": [
+        {
+            "id": 24602,
+            "dateEnd": "NA",
+            "image": "https://az620379.vo.msecnd.net/images/Contracts/small_7ff9f1b5-ab35-4b51-a013-0629cd1eb09e.png",
+            "name": "Republican",
+            "shortName": "Republican",
+            "status": "Open",
+            "lastTradePrice": 0.73,
+            "bestBuyYesCost": 0.73,
+            "bestBuyNoCost": 0.28,
+            "bestSellYesCost": 0.72,
+            "bestSellNoCost": 0.27,
+            "lastClosePrice": 0.73,
+            "displayOrder": 0
+        },
+        {
+            "id": 24603,
+            "dateEnd": "NA",
+            "image": "https://az620379.vo.msecnd.net/images/Contracts/small_0a6f9243-552a-4f7a-a253-088af5e83a68.png",
+            "name": "Democratic",
+            "shortName": "Democratic",
+            "status": "Open",
+            "lastTradePrice": 0.28,
+            "bestBuyYesCost": 0.28,
+            "bestBuyNoCost": 0.73,
+            "bestSellYesCost": 0.27,
+            "bestSellNoCost": 0.72,
+            "lastClosePrice": 0.27,
+            "displayOrder": 0
+        }
+    ],
+    "timeStamp": "2022-08-07T20:53:20.8794076",
+    "status": "Open"
+}
