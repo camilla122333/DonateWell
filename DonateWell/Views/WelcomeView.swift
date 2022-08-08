@@ -12,7 +12,7 @@ struct WelcomeView: View {
             VStack {
                 VStack(spacing: 40) {
                     VStack {
-                        Text("DonateWellFake")
+                        Text("DonateWell")
                             .font(.title)
     //                        .font(Font.custom("Nanum", size: 35))
                         Text("small-dollar political contributions")
@@ -27,7 +27,7 @@ struct WelcomeView: View {
                         .cornerRadius(10)
                         .foregroundColor(.cyan)
                     NavigationLink(destination: ListView()) {
-                        Text("Simple Button")
+                        Text("Start Donating")
 //                        Button(action: {
 //                            print("hi")
 //                        }, label: {

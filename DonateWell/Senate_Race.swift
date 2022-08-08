@@ -7,10 +7,13 @@
 
 import SwiftUI
 
+// add Codable
 struct Senate_Race: Identifiable {
     
-    var id: String
+    var id: Int
     var state: String
+    var candidate_d: String
+    var candidate_r: String
     
 }
 

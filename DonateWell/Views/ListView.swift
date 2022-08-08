@@ -11,17 +11,27 @@ struct ListView: View {
     @StateObject var dataManager = DataManager()
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
+            // List(dataManager.races, id: \.id) { senate_race in   ###
             List(dataManager.races) { senate_race in
-                Text(senate_race.state)
-                    .foregroundColor(.pink)
+                NavigationLink(
+                    // this will be (item: senate_race)
+                    // destination: StateDetailView(item: senate_race.state),  ###
+                    destination: StateDetailView(state_race: senate_race),
+                    label: {
+                        Text(senate_race.state)
+                        
+                    }
+                )
             }
             .navigationTitle("Senate Races")
-        }
+//            .background(Color(hue: 0.494, saturation: 0.138, brightness: 0.964, opacity: 0.941))
+//        }
         .environmentObject(dataManager)
     }
 }
 
+// preview's list view is not in a navigation view?
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
         ListView()

@@ -14,19 +14,19 @@ class DataManager: ObservableObject {
     // starts DataManager
     init() {
         fetchRaces()
-            guard let url = URL(string: "https://www.predictit.org/api/marketdata/markets/7112") else {
-                print("Invalid URL")
-                return
-            }
-            let request = URLRequest(url: url)
+//            guard let url = URL(string: "https://www.predictit.org/api/marketdata/markets/7112") else {
+//                print("Invalid URL")
+//                return
+//            }
+//            let request = URLRequest(url: url)
 
-            URLSession.shared.dataTask(with: request) { data, response, error in
-//                let data = data
-                let string = String(data: data!, encoding: .utf8)
-                print(string)
-                print(response)
-                print(error)
-            }.resume()
+//            URLSession.shared.dataTask(with: request) { data, response, error in
+////                let data = data
+//                let string = String(data: data!, encoding: .utf8)
+//                print(string)
+//                print(response)
+//                print(error)
+//            }.resume()
     }
     
     func fetchRaces() {
@@ -50,15 +50,22 @@ class DataManager: ObservableObject {
                     
                     // default value of empty string
                     // can change to diff pre-populated value
-                    let id = data["id"] as? String ?? ""
+                    let marketId = data["id"] as? String ?? ""
 //                    let state = data["state"] as? String ?? ""
-                    let state = document.documentID
+                    let state = document.documentID // "Alabama"
+                    let candidate_d = data["candidate-d"] as? String ?? ""
+                    let candidate_r = data["candidate-r"] as? String ?? ""
+
                     
-                    let senate_race = Senate_Race(id: id, state: state)
+                    let senate_race = Senate_Race(id: Int(marketId)!, state: state, candidate_d: candidate_d, candidate_r: candidate_r)
+                    
                     self.races.append(senate_race)
+                    
                 }
             }
         }
     }
+    
+    
+   
 }
-

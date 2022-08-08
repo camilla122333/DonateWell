@@ -8,22 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    init() {
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.shadowColor = .gray
+            tabBarAppearance.backgroundColor = .black
+            UITabBar.appearance().standardAppearance = tabBarAppearance
+        }
     var body: some View {
         NavigationView {
-            VStack {
-                HStack {
-                    Text("2022 MIDTERMS")
-                    // .font(Font.custom("Nanum", size: 18))
-                    Image("donkey")
-                }
-                .foregroundColor(.black)
-                .padding()
-                Divider()
-                WelcomeView()
-                Spacer()
+            TabView {
+                HomeView()
+                    .tabItem({
+                        Image(systemName: "house")
+                        Text("Home")
+                })
+                TopFive()
+                    .tabItem({
+                        Image(systemName: "die.face.5.fill")
+                        Text("Top 5 Races")
+                    })
+                
+                Page3()
+                    .tabItem({
+                        Image(systemName: "heart")
+                        Text("About")
+                    })
             }
-            .background(Color(hue: 0.494, saturation: 0.138, brightness: 0.964, opacity: 0.941))
-            .preferredColorScheme(.dark)
+            .accentColor(.red)
         }
     }
 }
