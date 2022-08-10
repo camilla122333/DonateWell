@@ -12,7 +12,7 @@ struct StateDetailView: View {
     @StateObject var apiManager = APIManager()
     let state_race: Senate_Race
 //    make instance of Response optionally available to StateDetailView
-//    let response: Response?
+//    @State var response: Response?
 
     var body: some View {
         VStack {
@@ -29,14 +29,28 @@ struct StateDetailView: View {
             Text("R Candidate: \(state_race.candidate_r)")
                 .foregroundColor(.black)
             Text("MARKET ID: \(state_race.market)")
-            // for loop through response.contracts
-                // if response.contract.party == "Democrat"
-                    // Text("PRICE: \(response.contract.lastTradePrice * 100)%")
-//            Text("PRICE: \(response.shortName)")
-            
+//            Text(apresponse?.shortName)
+            apiManager.response.map{
+                Text(String($0.marketId))
+            }
         }
+//        .task {
+//            do {
+//                self.response = try await apiManager.getMarket(market: state_race.market)
+//            } catch {
+//                print("Error getting market: \(error)")
+//            }
+//        }
         .onAppear() {
-            apiManager.getMarket(market: state_race.market)
+            Task {
+                do {
+                    try await apiManager.getMarket(market: state_race.market)
+//                    self.response = try await apiManager.getMarket(market: state_race.market)
+                } catch {
+                    print("Error getting market: \(error)")
+                }
+            }
+
         }
 //        .environmentObject(apiManager)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -50,5 +64,21 @@ struct StateDetailView_Previews: PreviewProvider {
     }
 }
 
+//response: Response(marketId: 1000, shortName: "Who will win", contracts: [Response.Contract(contractId: 2000, party: "Democratic", lastTradePrice: 0.56, lastClosePrice: 0.56)])
 // argument for StateDetailView_Previews call
 //response: Response(marketId: 1000, shortName: "Who will win", contracts: [Response.Contract(contractId: 2000, party: "Democratic", lastTradePrice: 0.56, lastClosePrice: 0.56)])
+
+
+// for loop through response.contracts
+    // if response.contract.party == "Democrat"
+        // Text("PRICE: \(response.contract.lastTradePrice * 100)%")
+//            Text(response!.shortName)
+
+// how to coalesce?
+// Text("PRICE:" + response!.shortName ?? "<randomtext>")
+
+
+//         .onAppear() {
+//             apiManager.getMarket(market: state_race.market)
+//
+//         }
