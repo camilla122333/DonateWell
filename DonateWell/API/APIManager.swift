@@ -9,14 +9,18 @@ import Foundation
 import SwiftUI
 
 class APIManager: ObservableObject {
+//    @Published var races: [Senate_Race] = []
+    var market = ""
     
-    init() {
-        getMarket()
-    }
-    
-    func getMarket() {
-        let url = URL(string: "https://www.predictit.org/api/marketdata/markets/7017")!
+//    init() {
+//        getMarket()
+//    }
+//
+//    func getMarket(market: String) async throws -> Response? {
+    func getMarket(market: String) {
+        let url = URL(string: "https://www.predictit.org/api/marketdata/markets/\(market)")!
 
+//        let task = await URLSession
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil else {
                 print(error!)
@@ -36,5 +40,6 @@ class APIManager: ObservableObject {
 
         }
         task.resume()
+//        return nil
     }
 }

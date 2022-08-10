@@ -50,14 +50,15 @@ class DataManager: ObservableObject {
                     
                     // default value of empty string
                     // can change to diff pre-populated value
-                    let marketId = data["id"] as? String ?? ""
+                    let marketId = data["id"] as? String ?? ""   // change to ID! State unique ID NOT MARKETID!
 //                    let state = data["state"] as? String ?? ""
                     let state = document.documentID // "Alabama"
                     let candidate_d = data["candidate-d"] as? String ?? ""
                     let candidate_r = data["candidate-r"] as? String ?? ""
+                    let market = data["market-id"] as? String ?? ""
 
                     
-                    let senate_race = Senate_Race(id: Int(marketId)!, state: state, candidate_d: candidate_d, candidate_r: candidate_r)
+                    let senate_race = Senate_Race(id: Int(marketId)!, state: state, candidate_d: candidate_d, candidate_r: candidate_r, market: market)
                     
                     self.races.append(senate_race)
                     
