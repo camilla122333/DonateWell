@@ -31,7 +31,8 @@ struct StateDetailView: View {
             Text("MARKET ID: \(state_race.market)")
 //            Text(apresponse?.shortName)
             apiManager.response.map{
-                Text(String($0.marketId))
+                Text($0.shortName)
+//                Text(String($0.marketId))
             }
         }
 //        .task {
@@ -40,7 +41,7 @@ struct StateDetailView: View {
 //            } catch {
 //                print("Error getting market: \(error)")
 //            }
-//        }
+//        } 
         .onAppear() {
             Task {
                 do {
