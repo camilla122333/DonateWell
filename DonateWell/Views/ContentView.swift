@@ -23,7 +23,7 @@ struct ContentView: View {
                         Image(systemName: "house")
                         Text("Home")
                 })
-                TopFive()
+                TopFiveRefactored()
                     .tabItem({
                         Image(systemName: "die.face.5.fill")
                         Text("Top 5 Races")

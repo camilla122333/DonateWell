@@ -7,14 +7,12 @@
 
 import Foundation
 
+@MainActor
 class APIManager: ObservableObject {
     @Published var response: Response?
+//    @Published var d_market: 
     var market = ""
     
-//    init() {
-//        getMarket()
-//    }
-//
     func getMarket(market: String) async throws {
         guard let url = URL(string: "https://www.predictit.org/api/marketdata/markets/\(market)")
         else {
@@ -37,30 +35,10 @@ class APIManager: ObservableObject {
         )
         
         print(decodedData.shortName)
+//        print(decodedData.contracts[0])
+        
 //        return decodedData
         self.response = decodedData
     }
 }
 
-
-
-//        let task = await URLSession.shared.dataTask(with: url) { data, response, error in
-//            guard error == nil else {
-//                print(error!)
-//                return
-//            }
-//
-//            guard let data = data else {
-//                print("Data is empty")
-//                return
-//            }
-//
-//            let decoder = JSONDecoder()
-//            // try!
-//            let values = try! decoder.decode(Response.self, from: data)
-//            print(values.shortName)
-//
-//
-//        }
-//        task.resume()
-//        return nil
