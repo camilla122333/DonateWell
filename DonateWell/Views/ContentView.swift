@@ -23,10 +23,10 @@ struct ContentView: View {
                         Image(systemName: "house")
                         Text("Home")
                 })
-                TopFiveRefactored()
+                RecommendationView()
                     .tabItem({
                         Image(systemName: "die.face.5.fill")
-                        Text("Top 5 Races")
+                        Text("Top Donations")
                     })
                 
                 Page3()

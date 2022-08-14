@@ -78,8 +78,11 @@ struct StateDetailView: View {
                 .foregroundColor(.white)
                 .background(Color.orange)
             } else if showButtonPass {
-                NavigationLink(destination: TopFiveRefactored()) {
-                    Text("PASS")
+                NavigationLink(destination: RecommendationView()) {
+                    VStack {
+                        Text("PASS")
+                        Text("DONATE HERE INSTEAD")
+                    }
                 }
                 .buttonStyle(.bordered)
             }
@@ -91,7 +94,7 @@ struct StateDetailView: View {
                     if let unwrapped = apiManager.response {
                         let filteredContracts = unwrapped.contracts.filter{$0.party == "Democratic"}
                         percentage2 = Int(filteredContracts[0].lastTradePrice * 100)
-                        if percentage2 < 70 && percentage2 > 35 {
+                        if percentage2 < 75 && percentage2 > 35 {
                             showButtonRecommend = true
                         } else {
                             showButtonPass = true

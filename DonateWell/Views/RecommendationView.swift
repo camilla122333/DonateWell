@@ -1,5 +1,5 @@
 //
-//  TopFiveRefactored.swift
+//  RecommendationView.swift
 //  DonateWell
 //
 //  Created by Camilla B on 8/10/22.
@@ -30,38 +30,41 @@ import SwiftUI
 //
 //}
 
-struct TopFiveRefactored: View {
+struct RecommendationView: View {
     @StateObject var dataManager = DataManager()
 //    @StateObject var vm = ArrayModificationViewModel()
     @State var num = 1
     @State var filteredArray: [Senate_Race] = []
 
     var body: some View {
-        VStack {
+        VStack (spacing: 20){
             Text("Recommended Donations")
-                .foregroundColor(.gray)
-                .font(.system(size: 20, weight: .bold))
+                .foregroundColor(.black)
+                .font(.system(size: 29, weight: .bold))
             Spacer()
             ScrollView {
                 VStack(spacing: 20) {
                     ForEach(dataManager.races.filter { $0.isRecommended }) { election in
                         VStack(alignment: .leading) {
-                            Text("\(String(num)). \(election.state)")
+                            Text(election.state)
                                 .font(.headline)
+                                .foregroundColor(.black)
                                 .padding(.horizontal)
                             HStack {
-                                Text("Score: ")
+                                Text(election.candidate_d)
                                     .padding(.horizontal)
                                 Spacer()
                                 if election.isRecommended {
-                                    Image(systemName: "flame.fill")
-                                        
+                                    Image(systemName: "star.fill")
+//                                        .resizable()
+//                                        .frame(width: 40, height: 40)
                                         .padding(.horizontal)
                                         .foregroundColor(.orange)
                                 }
                             }
                         }
                         .foregroundColor(.white)
+                        .padding()
                         .background(Color.gray.cornerRadius(10))
                         .padding(.horizontal)
                         //num += 1
@@ -69,6 +72,7 @@ struct TopFiveRefactored: View {
                 }
             }
         }
+        .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(hue: 0.494, saturation: 0.138, brightness: 0.964, opacity: 0.941))
     }
@@ -83,8 +87,8 @@ struct TopFiveRefactored: View {
 //    }
 }
 
-struct TopFiveRefactored_Previews: PreviewProvider {
+struct RecommendationView_Previews: PreviewProvider {
     static var previews: some View {
-        TopFiveRefactored()
+        RecommendationView()
     }
 }
