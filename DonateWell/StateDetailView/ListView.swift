@@ -11,18 +11,17 @@ struct ListView: View {
     @StateObject var dataManager = DataManager()
     
     var body: some View {
-            List(dataManager.races) { senate_race in
-                NavigationLink(
-                    destination: StateDetailView(state_race: senate_race),
-                    label: {
-                        Text(senate_race.state)
+        List(dataManager.races) { senate_race in
+            NavigationLink(
+                destination: StateDetailView(state_race: senate_race),
+                label: {
+                    Text(senate_race.state)
                         
-                    }
-                )
-            }
-            .navigationTitle("Senate Races")
+                }
+            )
+        }
+        .navigationTitle("Senate Races")
 //            .background(Color(hue: 0.494, saturation: 0.138, brightness: 0.964, opacity: 0.941))
-//        }
         .environmentObject(dataManager)
     }
 }

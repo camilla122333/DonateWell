@@ -57,9 +57,9 @@ class DataManager: ObservableObject {
                     let candidate_r = data["candidate-r"] as? String ?? ""
                     let market = data["market-id"] as? String ?? ""
                     let link = data["actblue-id"] as? String ?? ""
+                    let isRecommended = data["isRecommended"] as? Bool ?? false
 
-                    
-                    let senate_race = Senate_Race(id: Int(marketId)!, state: state, candidate_d: candidate_d, candidate_r: candidate_r, market: market, link: link)
+                    let senate_race = Senate_Race(id: Int(marketId)!, state: state, candidate_d: candidate_d, candidate_r: candidate_r, market: market, link: link, isRecommended: isRecommended)
                     
                     self.races.append(senate_race)
                     
