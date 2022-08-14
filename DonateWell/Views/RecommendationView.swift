@@ -45,28 +45,50 @@ struct RecommendationView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     ForEach(dataManager.races.filter { $0.isRecommended }) { election in
-                        VStack(alignment: .leading) {
-                            Text(election.state)
-                                .font(.headline)
-                                .foregroundColor(.black)
-                                .padding(.horizontal)
-                            HStack {
-                                Text(election.candidate_d)
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(election.state)
+                                    .font(.headline)
+                                    .foregroundColor(.black)
                                     .padding(.horizontal)
-                                Spacer()
-                                if election.isRecommended {
-                                    Image(systemName: "star.fill")
-//                                        .resizable()
-//                                        .frame(width: 40, height: 40)
+                                HStack {
+                                    Text(election.candidate_d)
                                         .padding(.horizontal)
-                                        .foregroundColor(.orange)
+                                    Spacer()
+                                    if election.isRecommended {
+                                        Image(systemName: "star.fill")
+    //                                        .resizable()
+    //                                        .frame(width: 40, height: 40)
+                                            .padding(.horizontal)
+                                            .foregroundColor(.cyan)
+                                    }
                                 }
                             }
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.orange.cornerRadius(10))
+                            .padding(.horizontal)
+                            VStack {
+                                ZStack {
+                                    
+                                    Link(destination: URL(string: election.link)!) {
+                                        Circle()
+    //                                        .stroke(.black, lineWidth: 1)
+                                            .frame(width: 50, height: 50)
+                                        .foregroundColor(.white)
+                                    }
+                                    Image(systemName: "heart")
+                                        .resizable()
+                                        .frame(width: 28, height: 28)
+                                        .foregroundColor(.black)
+                                }
+                                    
+                                Text("Donate")
+                                    .font(.system(size: 13))
+                                    .foregroundColor(.red)
+                                    
+                            }
                         }
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.gray.cornerRadius(10))
-                        .padding(.horizontal)
                         //num += 1
                     }
                 }
