@@ -15,6 +15,7 @@ struct Senate_Race: Identifiable {
     var candidate_d: String
     var candidate_r: String
     var market: String
+    var link: String
     
 }
 
