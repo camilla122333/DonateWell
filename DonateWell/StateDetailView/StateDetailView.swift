@@ -50,17 +50,31 @@ struct StateDetailView: View {
                         .foregroundColor(.red)
                 }
             }
-            Text("MARKET ID: \(state_race.market)")
-            
-//            if showButtonRecommend {
-//                Rectangle("RECOMMEND") {
-//                    
+            HStack {
+//                ZStack {
+                    AsyncImage(url: URL(string: state_race.candidate_d_pic)) { returnedImage in
+                        returnedImage
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100) //  alignment
+                            .cornerRadius(20)
+                    } placeholder: {
+                        ProgressView()
+                    }
 //                }
-//            }
-            
+                AsyncImage(url: URL(string: state_race.candidate_r_pic), content: { returnedImage in
+                    returnedImage
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100, height: 100) //  alignment
+                        .cornerRadius(20)
+                }, placeholder: {
+                    ProgressView()
+                })
+            }
             
             if showButtonRecommend {
-                NavigationLink(destination: DonationLinkView()) {
+//                NavigationLink(destination: DonationLinkView()) {
                     VStack{
                         Text("RECOMMEND")
                         Link(destination: URL(string: state_race.link)!) {
@@ -69,14 +83,13 @@ struct StateDetailView: View {
                                     .resizable()
                                     .frame(width: 40, height: 40)
                                 Text("Let's donate!")
-        //                        Text(state_race.link)
                             }
                         }
                     }
-                }
-                .buttonStyle(.bordered)
-                .foregroundColor(.white)
-                .background(Color.orange)
+//                }
+                    .buttonStyle(.bordered)
+                    .foregroundColor(.white)
+                    .background(Color.orange)
             } else if showButtonPass {
                 NavigationLink(destination: RecommendationView()) {
                     VStack {
