@@ -89,7 +89,6 @@ struct RecommendationView: View {
                                     
                             }
                         }
-                        //num += 1
                     }
                 }
             }

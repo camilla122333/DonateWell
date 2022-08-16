@@ -29,48 +29,48 @@ struct StateDetailView: View {
             HStack {
                 Text("D Candidate: \(state_race.candidate_d)")
                     .foregroundColor(.black)
-//                if let unwrapped = apiManager.response {
-//                    let filteredContracts = unwrapped.contracts.filter{$0.party == "Democratic"}
-//                    let percentage = Int(filteredContracts[0].lastTradePrice * 100)
-//                    if percentage < 70 && percentage > 35 {
-//                        let _ = showButtonRecommend = true
-//                    }
-//                    Text(String(percentage) + "%")
-//                        .foregroundColor(.red)
-//                }
-                Text(String(percentage2) + "%")
-                    .foregroundColor(.red)
-            }
-            HStack {
-                Text("R Candidate: \(state_race.candidate_r)")
-                    .foregroundColor(.black)
-                if let unwrapped = apiManager.response {
-                    let filteredContracts = unwrapped.contracts.filter{$0.party == "Republican"}
-                    Text(String(Int(filteredContracts[0].lastTradePrice * 100)) + "%")
+                
+                if state_race.market != "" {
+                    Text(String(percentage2) + "%")
                         .foregroundColor(.red)
                 }
             }
             HStack {
-//                ZStack {
-                    AsyncImage(url: URL(string: state_race.candidate_d_pic)) { returnedImage in
-                        returnedImage
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 100, height: 100) //  alignment
-                            .cornerRadius(20)
-                    } placeholder: {
-                        ProgressView()
+                Text("R Candidate: \(state_race.candidate_r)")
+                    .foregroundColor(.black)
+                
+                if state_race.market != "" {
+                    if let unwrapped = apiManager.response {
+                        let filteredContracts = unwrapped.contracts.filter{$0.party == "Republican"}
+                        Text(String(Int(filteredContracts[0].lastTradePrice * 100)) + "%")
+                            .foregroundColor(.red)
                     }
-//                }
-                AsyncImage(url: URL(string: state_race.candidate_r_pic), content: { returnedImage in
+                }
+            }
+            HStack {
+                AsyncImage(url: URL(string: state_race.candidate_d_pic)) { returnedImage in
                     returnedImage
                         .resizable()
-                        .scaledToFit()
-                        .frame(width: 100, height: 100) //  alignment
-                        .cornerRadius(20)
-                }, placeholder: {
+                } placeholder: {
+                    ProgressView ()
+                        .progressViewStyle(.circular)
+                        .tint(.blue)
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                .scaledToFit()
+                .frame(width: 120, height: 120) //  alignment
+                
+                AsyncImage(url: URL(string: state_race.candidate_r_pic)) { returnedImage in
+                    returnedImage
+                        .resizable()
+                } placeholder: {
                     ProgressView()
-                })
+                        .progressViewStyle(.circular)
+                        .tint(.red)
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                .scaledToFit()
+                .frame(width: 120, height: 120) //  alignment
             }
             
             if showButtonRecommend {
@@ -103,14 +103,16 @@ struct StateDetailView: View {
         .onAppear() {
             Task {
                 do {
-                    try await apiManager.getMarket(market: state_race.market)
-                    if let unwrapped = apiManager.response {
-                        let filteredContracts = unwrapped.contracts.filter{$0.party == "Democratic"}
-                        percentage2 = Int(filteredContracts[0].lastTradePrice * 100)
-                        if percentage2 < 75 && percentage2 > 35 {
-                            showButtonRecommend = true
-                        } else {
-                            showButtonPass = true
+                    if state_race.market != "" {
+                        try await apiManager.getMarket(market: state_race.market)
+                        if let unwrapped = apiManager.response {
+                            let filteredContracts = unwrapped.contracts.filter{$0.party == "Democratic"}
+                            percentage2 = Int(filteredContracts[0].lastTradePrice * 100)
+                            if percentage2 < 75 && percentage2 > 35 {
+                                showButtonRecommend = true
+                            } else {
+                                showButtonPass = true
+                            }
                         }
                     }
                 } catch {
