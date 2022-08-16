@@ -22,6 +22,7 @@ struct ContentView: View {
                     .tabItem({
                         Image(systemName: "house")
                         Text("Home")
+                            .font(MyFont.small)
                 })
                 RecommendationView()
                     .tabItem({
@@ -32,7 +33,7 @@ struct ContentView: View {
                 Page3()
                     .tabItem({
                         Image(systemName: "heart")
-                        Text("About")
+                        Text("Twitter Feed")
                     })
             }
             .accentColor(.red)

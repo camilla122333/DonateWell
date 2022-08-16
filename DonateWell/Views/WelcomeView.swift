@@ -13,9 +13,10 @@ struct WelcomeView: View {
                 VStack(spacing: 40) {
                     VStack {
                         Text("DonateWell")
-                            .font(.title)
-    //                        .font(Font.custom("Nanum", size: 35))
+                            .font(MyFont.title)
+                            .foregroundColor(Color.red)
                         Text("small-dollar political contributions")
+                            .font(MyFont.body)
                     }
                     .foregroundColor(.gray)
 
@@ -25,9 +26,10 @@ struct WelcomeView: View {
                         .frame(width: 150, height: 150)
                         .padding()
                         .cornerRadius(10)
-                        .foregroundColor(.cyan)
+//                        .foregroundColor(.cyan)
                     NavigationLink(destination: ListView()) {
                         Text("Start Donating")
+                            .font(MyFont.medium)
 //                        Button(action: {
 //                            print("hi")
 //                        }, label: {
@@ -43,6 +45,7 @@ struct WelcomeView: View {
                     }
                     .buttonStyle(.bordered)
                     Text("camilla 2022")
+                        .font(MyFont.medium)
                 }
                 .multilineTextAlignment(.center)
                 .padding()
