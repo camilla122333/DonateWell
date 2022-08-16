@@ -13,6 +13,7 @@ struct StateDetailView: View {
     @State private var showButtonRecommend: Bool = false
     @State private var showButtonPass: Bool = false
     @State var percentage2: Int = 0
+    @State var percentageR: Int = 0
     
     let state_race: Senate_Race
 
@@ -40,11 +41,8 @@ struct StateDetailView: View {
                     .foregroundColor(.black)
                 
                 if state_race.market != "" {
-                    if let unwrapped = apiManager.response {
-                        let filteredContracts = unwrapped.contracts.filter{$0.party == "Republican"}
-                        Text(String(Int(filteredContracts[0].lastTradePrice * 100)) + "%")
+                        Text(String(percentageR) + "%")
                             .foregroundColor(.red)
-                    }
                 }
             }
             HStack {
@@ -107,6 +105,8 @@ struct StateDetailView: View {
                         try await apiManager.getMarket(market: state_race.market)
                         if let unwrapped = apiManager.response {
                             let filteredContracts = unwrapped.contracts.filter{$0.party == "Democratic"}
+                            let filteredContractsRep = unwrapped.contracts.filter{$0.party == "Republican"}
+                            percentageR = Int(filteredContractsRep[0].lastTradePrice * 100)
                             percentage2 = Int(filteredContracts[0].lastTradePrice * 100)
                             if percentage2 < 75 && percentage2 > 35 {
                                 showButtonRecommend = true
