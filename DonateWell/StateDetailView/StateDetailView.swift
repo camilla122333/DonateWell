@@ -18,15 +18,15 @@ struct StateDetailView: View {
     let state_race: Senate_Race
 
     var body: some View {
-        VStack (spacing: 15){
+        VStack (spacing: 18){
             Text(state_race.state)
                 .textCase(.uppercase)
 //                .font(.custom("NanumPen", size: 50))
-                .font(.custom("HiMelody-Regular", size: 60))
+                .font(Font.custom("NanumPen", size: 48))
                 .scaledToFit()
                 .foregroundColor(.red)
             
-            HStack (spacing: 15) {
+            HStack (spacing: 10) {
                 AsyncImage(url: URL(string: state_race.candidate_d_pic)) { returnedImage in
                     returnedImage
                         .resizable()
@@ -37,18 +37,26 @@ struct StateDetailView: View {
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 .scaledToFit()
+//                .background(Color.green)
                 .frame(width: 120, height: 120) //  alignment
                 
                 Text(state_race.candidate_d)
                     .foregroundColor(.black)
+//                    .background(Color.green)
                 
                 if state_race.market != "" {
-                    Text(String(percentage2) + "%")
+                        Text(String(percentage2) + "%")
+                        .frame(width: 55, height: 55)
                         .foregroundColor(.red)
+                        .background (
+                            Circle()
+                                .fill(Color.white)
+                        )
+//                    .background(Color.green)
                 }
             }
             .padding()
-            .padding(.horizontal)
+//            .padding(.horizontal)
             .border(Color.gray, width: 1)
             .background(Color("libertyColor"))
             
@@ -66,11 +74,15 @@ struct StateDetailView: View {
                 .frame(width: 120, height: 120) //  alignment
                 
                 Text(state_race.candidate_r)
-                    .foregroundColor(.black)
-                
+                    
                 if state_race.market != "" {
-                    Text(String(percentageR) + "%")
+                        Text(String(percentageR) + "%")
+                        .frame(width: 55, height: 55)
                         .foregroundColor(.red)
+                        .background (
+                            Circle()
+                                .fill(Color.white)
+                        )
                 }
             }
             .padding()
