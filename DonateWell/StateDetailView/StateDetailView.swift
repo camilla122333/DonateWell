@@ -18,11 +18,11 @@ struct StateDetailView: View {
     let state_race: Senate_Race
 
     var body: some View {
-        VStack (spacing: 13){
+        VStack (spacing: 15){
             Text(state_race.state)
                 .textCase(.uppercase)
 //                .font(.custom("NanumPen", size: 50))
-                .font(.custom("HelveticaNeue-Light", size: 60))
+                .font(.custom("HiMelody-Regular", size: 60))
                 .scaledToFit()
                 .foregroundColor(.red)
             
@@ -49,9 +49,10 @@ struct StateDetailView: View {
             }
             .padding()
             .padding(.horizontal)
-            .background(Color.white)
+            .border(Color.gray, width: 1)
+            .background(Color("libertyColor"))
             
-            HStack (spacing: 13) {
+            HStack (spacing: 15) {
                 AsyncImage(url: URL(string: state_race.candidate_r_pic)) { returnedImage in
                     returnedImage
                         .resizable()
@@ -74,8 +75,8 @@ struct StateDetailView: View {
             }
             .padding()
             .padding(.horizontal)
-            .background(Color.white)
-            
+            .border(Color.gray, width: 1)
+            .background(Color("libertyColor"))
             
             if showButtonRecommend {
 //                NavigationLink(destination: DonationLinkView()) {
