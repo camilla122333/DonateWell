@@ -12,7 +12,7 @@ struct HomeView: View {
         VStack {
             HStack {
                 Text("2022 MIDTERMS")
-                // .font(Font.custom("Nanum", size: 18))
+                 .font(Font.custom("NanumPen", size: 25))
                 Image("donkey")
             }
             .foregroundColor(.black)
