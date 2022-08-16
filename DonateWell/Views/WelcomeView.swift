@@ -12,8 +12,8 @@ struct WelcomeView: View {
             VStack {
                 VStack(spacing: 40) {
                     VStack {
-                        Text("DonateWell")
-                            .font(MyFont.title)
+                        Text("DONATEWELL")
+                            .font(Font.custom("NanumPen", size: 48))
                             .foregroundColor(Color.red)
                         Text("small-dollar political contributions")
                             .font(MyFont.body)

@@ -18,34 +18,15 @@ struct StateDetailView: View {
     let state_race: Senate_Race
 
     var body: some View {
-        VStack {
-            ZStack{
-                Rectangle()
-                    .frame(width: 400, height: 200)
-                    .foregroundColor(.yellow)
-                Text(state_race.state)
-                    .foregroundColor(.black)
-                    .font(.system(size: 60, weight: .bold))
-            }
-            HStack {
-                Text("D Candidate: \(state_race.candidate_d)")
-                    .foregroundColor(.black)
-                
-                if state_race.market != "" {
-                    Text(String(percentage2) + "%")
-                        .foregroundColor(.red)
-                }
-            }
-            HStack {
-                Text("R Candidate: \(state_race.candidate_r)")
-                    .foregroundColor(.black)
-                
-                if state_race.market != "" {
-                        Text(String(percentageR) + "%")
-                            .foregroundColor(.red)
-                }
-            }
-            HStack {
+        VStack (spacing: 13){
+            Text(state_race.state)
+                .textCase(.uppercase)
+//                .font(.custom("NanumPen", size: 50))
+                .font(.custom("HelveticaNeue-Light", size: 60))
+                .scaledToFit()
+                .foregroundColor(.red)
+            
+            HStack (spacing: 15) {
                 AsyncImage(url: URL(string: state_race.candidate_d_pic)) { returnedImage in
                     returnedImage
                         .resizable()
@@ -58,6 +39,19 @@ struct StateDetailView: View {
                 .scaledToFit()
                 .frame(width: 120, height: 120) //  alignment
                 
+                Text(state_race.candidate_d)
+                    .foregroundColor(.black)
+                
+                if state_race.market != "" {
+                    Text(String(percentage2) + "%")
+                        .foregroundColor(.red)
+                }
+            }
+            .padding()
+            .padding(.horizontal)
+            .background(Color.white)
+            
+            HStack (spacing: 13) {
                 AsyncImage(url: URL(string: state_race.candidate_r_pic)) { returnedImage in
                     returnedImage
                         .resizable()
@@ -69,7 +63,19 @@ struct StateDetailView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 .scaledToFit()
                 .frame(width: 120, height: 120) //  alignment
+                
+                Text(state_race.candidate_r)
+                    .foregroundColor(.black)
+                
+                if state_race.market != "" {
+                    Text(String(percentageR) + "%")
+                        .foregroundColor(.red)
+                }
             }
+            .padding()
+            .padding(.horizontal)
+            .background(Color.white)
+            
             
             if showButtonRecommend {
 //                NavigationLink(destination: DonationLinkView()) {
