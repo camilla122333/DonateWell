@@ -37,6 +37,7 @@ struct StateDetailView: View {
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 .scaledToFit()
+                .shadow(color: Color(hue: 0.554, saturation: 0.065, brightness: 0.775), radius: 5, x: 0, y: 10.0)
 //                .background(Color.green)
                 .frame(width: 120, height: 120) //  alignment
                 
@@ -50,7 +51,8 @@ struct StateDetailView: View {
                         .foregroundColor(.red)
                         .background (
                             Circle()
-                                .fill(Color.white)
+                                .fill(.white)
+                                .shadow(color: Color(hue: 0.554, saturation: 0.065, brightness: 0.775), radius: 5, x: 0, y: 10.0)
                         )
 //                    .background(Color.green)
                 }
@@ -59,6 +61,7 @@ struct StateDetailView: View {
 //            .padding(.horizontal)
             .border(Color.gray, width: 1)
             .background(Color("libertyColor"))
+            .shadow(color: Color(hue: 0.554, saturation: 0.065, brightness: 0.775), radius: 5, x: 0, y: 10.0)
             
             HStack (spacing: 15) {
                 AsyncImage(url: URL(string: state_race.candidate_r_pic)) { returnedImage in
@@ -71,9 +74,11 @@ struct StateDetailView: View {
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 .scaledToFit()
+                .shadow(color: Color(hue: 0.554, saturation: 0.076, brightness: 0.908, opacity: 0.694), radius: 2, x: 0, y: 10.0)
                 .frame(width: 120, height: 120) //  alignment
                 
                 Text(state_race.candidate_r)
+                    .foregroundColor(.black)
                     
                 if state_race.market != "" {
                         Text(String(percentageR) + "%")
@@ -82,13 +87,15 @@ struct StateDetailView: View {
                         .background (
                             Circle()
                                 .fill(Color.white)
+                                .shadow(color: Color(hue: 0.554, saturation: 0.065, brightness: 0.775), radius: 5, x: 0, y: 10.0)
                         )
                 }
             }
             .padding()
             .padding(.horizontal)
             .border(Color.gray, width: 1)
-            .background(Color("libertyColor"))
+            .background(Color(red: 0.9725490196078431, green: 0.9411764705882353, blue: 0.8745098039215686))
+            .shadow(color: Color(hue: 0.554, saturation: 0.065, brightness: 0.775), radius: 5, x: 0, y: 10.0)
             
             if showButtonRecommend {
 //                NavigationLink(destination: DonationLinkView()) {
