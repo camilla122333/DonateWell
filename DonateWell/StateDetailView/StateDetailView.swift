@@ -21,7 +21,6 @@ struct StateDetailView: View {
         VStack (spacing: 18){
             Text(state_race.state)
                 .textCase(.uppercase)
-//                .font(.custom("NanumPen", size: 50))
                 .font(Font.custom("NanumPen", size: 48))
                 .scaledToFit()
                 .foregroundColor(.red)
@@ -37,7 +36,7 @@ struct StateDetailView: View {
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 .scaledToFit()
-                .shadow(color: Color(hue: 0.554, saturation: 0.065, brightness: 0.775), radius: 5, x: 0, y: 10.0)
+                .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
 //                .background(Color.green)
                 .frame(width: 120, height: 120) //  alignment
                 
@@ -52,7 +51,7 @@ struct StateDetailView: View {
                         .background (
                             Circle()
                                 .fill(.white)
-                                .shadow(color: Color(hue: 0.554, saturation: 0.065, brightness: 0.775), radius: 5, x: 0, y: 10.0)
+                                .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
                         )
 //                    .background(Color.green)
                 }
@@ -60,7 +59,7 @@ struct StateDetailView: View {
             .padding()
 //            .padding(.horizontal)
             .border(Color.gray, width: 1)
-            .background(Color("libertyColor"))
+            .background(Color(red: 0.9607843137254902, green: 0.9294117647058824, blue: 0.8431372549019608))
             .shadow(color: Color(hue: 0.554, saturation: 0.065, brightness: 0.775), radius: 5, x: 0, y: 10.0)
             
             HStack (spacing: 15) {
@@ -74,7 +73,7 @@ struct StateDetailView: View {
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 .scaledToFit()
-                .shadow(color: Color(hue: 0.554, saturation: 0.076, brightness: 0.908, opacity: 0.694), radius: 2, x: 0, y: 10.0)
+                .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
                 .frame(width: 120, height: 120) //  alignment
                 
                 Text(state_race.candidate_r)
@@ -87,14 +86,14 @@ struct StateDetailView: View {
                         .background (
                             Circle()
                                 .fill(Color.white)
-                                .shadow(color: Color(hue: 0.554, saturation: 0.065, brightness: 0.775), radius: 5, x: 0, y: 10.0)
+                                .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
                         )
                 }
             }
             .padding()
-            .padding(.horizontal)
+//            .padding(.horizontal)
             .border(Color.gray, width: 1)
-            .background(Color(red: 0.9725490196078431, green: 0.9411764705882353, blue: 0.8745098039215686))
+            .background(Color(red: 0.9607843137254902, green: 0.9294117647058824, blue: 0.8431372549019608))
             .shadow(color: Color(hue: 0.554, saturation: 0.065, brightness: 0.775), radius: 5, x: 0, y: 10.0)
             
             if showButtonRecommend {
