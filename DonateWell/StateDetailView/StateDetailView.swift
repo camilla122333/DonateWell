@@ -171,38 +171,25 @@ struct StateDetailView: View {
             }
             
             if showButtonRecommend {
-                Text("EFFECTIVE DONATION")
-                    .foregroundColor(.red)
-                    .font(Font.custom("NanumPen", size: 40))
                 
+                HStack {
+                    Image(systemName: "star.fill")
+                    Text("EFFECTIVE DONATION")
+                        .font(Font.custom("NanumPen", size: 40))
+                    Image(systemName: "star.fill")
+                }
+                .foregroundColor(.red)
+
                 Link(destination: URL(string: state_race.link)!) {
                     HStack {
-                        Image(systemName: "heart.fill")
-                        Text("LET\'S DONATE!")
+//                        Image(systemName: "heart.fill")
+                        Text("DONATE")
+                            .font(Font.title3.weight(.semibold))
                     }
                     .foregroundColor(.white)
                 }
-                .buttonStyle(GradientButtonStyle())
+                .buttonStyle(GradientButtonStyleEffective())
                 .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
-                
-                
-                
-//                    VStack{
-//                        Text("RECOMMEND")
-//                        Link(destination: URL(string: state_race.link)!) {
-//                            VStack {
-//                                Image("donkey")
-//                                    .resizable()
-//                                    .frame(width: 40, height: 40)
-//                                Text("Let's donate!")
-//                            }
-//                        }
-//                    }
-//                    .buttonStyle(.bordered)
-//                    .foregroundColor(.white)
-//                    .background(Color.orange)
-//
-                
                 
             } else if showButtonPass {
                 
