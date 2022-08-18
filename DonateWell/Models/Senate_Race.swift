@@ -19,6 +19,7 @@ struct Senate_Race: Identifiable {
     var isRecommended: Bool
     var candidate_d_pic: String
     var candidate_r_pic: String
+    var state_partisanship: String
     
 }
 

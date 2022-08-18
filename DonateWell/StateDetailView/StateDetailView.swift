@@ -14,6 +14,8 @@ struct StateDetailView: View {
     @State private var showButtonPass: Bool = false
     @State var percentage2: Int = 0
     @State var percentageR: Int = 0
+    @State var dChancesNoMarket: Int = 1
+    @State var rChancesNoMarket: Int = 1
     
     let state_race: Senate_Race
 
@@ -47,13 +49,34 @@ struct StateDetailView: View {
                 if state_race.market != "" {
                         Text(String(percentage2) + "%")
                         .frame(width: 55, height: 55)
-                        .foregroundColor(.red)
+                        .foregroundColor(Color(hue: 0.533, saturation: 0.961, brightness: 0.933))
+                        .font(Font.title3.weight(.semibold))
                         .background (
                             Circle()
                                 .fill(.white)
                                 .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
                         )
 //                    .background(Color.green)
+                } else if state_race.state_partisanship == "red" {
+                    Text(String(dChancesNoMarket) + "%")
+                    .frame(width: 55, height: 55)
+                    .foregroundColor(Color(hue: 0.533, saturation: 0.961, brightness: 0.933))
+                    .font(Font.title3.weight(.semibold))
+                    .background (
+                        Circle()
+                            .fill(.white)
+                            .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
+                    )
+                } else if state_race.market == "" && state_race.state_partisanship == "blue" {
+                    let dPercentage = 100 - rChancesNoMarket
+                    Text(String(dPercentage) + "%")
+                    .frame(width: 55, height: 55)
+                    .foregroundColor(.red)
+                    .background (
+                        Circle()
+                            .fill(.white)
+                            .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
+                    )
                 }
             }
             .padding()
@@ -88,6 +111,25 @@ struct StateDetailView: View {
                                 .fill(Color.white)
                                 .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
                         )
+                } else if state_race.market == "" && state_race.state_partisanship == "blue" {
+                    Text(String(rChancesNoMarket) + "%")
+                    .frame(width: 55, height: 55)
+                    .foregroundColor(.red)
+                    .background (
+                        Circle()
+                            .fill(.white)
+                            .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
+                    )
+                } else if state_race.market == "" && state_race.state_partisanship == "red" {
+                    let rPercentage = 100 - dChancesNoMarket
+                    Text(String(rPercentage) + "%")
+                    .frame(width: 55, height: 55)
+                    .foregroundColor(.red)
+                    .background (
+                        Circle()
+                            .fill(.white)
+                            .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
+                    )
                 }
             }
             .padding()
