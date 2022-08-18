@@ -71,7 +71,8 @@ struct StateDetailView: View {
                     let dPercentage = 100 - rChancesNoMarket
                     Text(String(dPercentage) + "%")
                     .frame(width: 55, height: 55)
-                    .foregroundColor(.red)
+                    .foregroundColor(Color(hue: 0.533, saturation: 0.961, brightness: 0.933))
+                    .font(Font.title3.weight(.semibold))
                     .background (
                         Circle()
                             .fill(.white)
@@ -106,6 +107,7 @@ struct StateDetailView: View {
                         Text(String(percentageR) + "%")
                         .frame(width: 55, height: 55)
                         .foregroundColor(.red)
+                        .font(Font.title3.weight(.semibold))
                         .background (
                             Circle()
                                 .fill(Color.white)
@@ -115,6 +117,7 @@ struct StateDetailView: View {
                     Text(String(rChancesNoMarket) + "%")
                     .frame(width: 55, height: 55)
                     .foregroundColor(.red)
+                    .font(Font.title3.weight(.semibold))
                     .background (
                         Circle()
                             .fill(.white)
@@ -125,6 +128,7 @@ struct StateDetailView: View {
                     Text(String(rPercentage) + "%")
                     .frame(width: 55, height: 55)
                     .foregroundColor(.red)
+                    .font(Font.title3.weight(.semibold))
                     .background (
                         Circle()
                             .fill(.white)
