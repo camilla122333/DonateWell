@@ -188,13 +188,24 @@ struct StateDetailView: View {
                     .foregroundColor(.white)
                     .background(Color.orange)
             } else if showButtonPass {
+                
+                Text("NOT EFFECTIVE")
+                .foregroundColor(.red)
+                .font(Font.custom("NanumPen", size: 40))
+
                 NavigationLink(destination: RecommendationView()) {
-                    VStack {
-                        Text("PASS")
-                        Text("DONATE HERE INSTEAD")
+                    HStack {
+                        Image(systemName: "star.fill")
+                        VStack {
+                            Text("DONATE HERE")
+                            Text("INSTEAD")
+                        }
                     }
+                    .foregroundColor(.white)
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(GradientButtonStyle())
+                .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
+                
             }
         }
         .onAppear() {
