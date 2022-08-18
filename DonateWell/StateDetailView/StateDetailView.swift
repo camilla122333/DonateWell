@@ -171,22 +171,39 @@ struct StateDetailView: View {
             }
             
             if showButtonRecommend {
-//                NavigationLink(destination: DonationLinkView()) {
-                    VStack{
-                        Text("RECOMMEND")
-                        Link(destination: URL(string: state_race.link)!) {
-                            VStack {
-                                Image("donkey")
-                                    .resizable()
-                                    .frame(width: 40, height: 40)
-                                Text("Let's donate!")
-                            }
-                        }
+                Text("EFFECTIVE DONATION")
+                    .foregroundColor(.red)
+                    .font(Font.custom("NanumPen", size: 40))
+                
+                Link(destination: URL(string: state_race.link)!) {
+                    HStack {
+                        Image(systemName: "heart.fill")
+                        Text("LET\'S DONATE!")
                     }
-//                }
-                    .buttonStyle(.bordered)
                     .foregroundColor(.white)
-                    .background(Color.orange)
+                }
+                .buttonStyle(GradientButtonStyle())
+                .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
+                
+                
+                
+//                    VStack{
+//                        Text("RECOMMEND")
+//                        Link(destination: URL(string: state_race.link)!) {
+//                            VStack {
+//                                Image("donkey")
+//                                    .resizable()
+//                                    .frame(width: 40, height: 40)
+//                                Text("Let's donate!")
+//                            }
+//                        }
+//                    }
+//                    .buttonStyle(.bordered)
+//                    .foregroundColor(.white)
+//                    .background(Color.orange)
+//
+                
+                
             } else if showButtonPass {
                 
                 Text("NOT EFFECTIVE")
