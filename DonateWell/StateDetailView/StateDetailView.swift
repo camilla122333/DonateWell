@@ -23,10 +23,11 @@ struct StateDetailView: View {
         VStack (spacing: 18){
             Text(state_race.state)
                 .textCase(.uppercase)
-                .font(Font.custom("NanumPen", size: 48))
+                .font(Font.custom("NanumPen", size: 50))
                 .scaledToFit()
                 .foregroundColor(.red)
             
+            // D CANDIDATE
             HStack (spacing: 10) {
                 AsyncImage(url: URL(string: state_race.candidate_d_pic)) { returnedImage in
                     returnedImage
@@ -44,6 +45,7 @@ struct StateDetailView: View {
                 
                 Text(state_race.candidate_d)
                     .foregroundColor(.black)
+                    .font(.system(size: 16))
 //                    .background(Color.green)
                 
                 if state_race.market != "" {
@@ -86,6 +88,9 @@ struct StateDetailView: View {
             .background(Color(red: 0.9607843137254902, green: 0.9294117647058824, blue: 0.8431372549019608))
             .shadow(color: Color(hue: 0.554, saturation: 0.065, brightness: 0.775), radius: 5, x: 0, y: 10.0)
             
+            
+            
+            // D CANDIDATE
             HStack (spacing: 15) {
                 AsyncImage(url: URL(string: state_race.candidate_r_pic)) { returnedImage in
                     returnedImage
@@ -102,6 +107,7 @@ struct StateDetailView: View {
                 
                 Text(state_race.candidate_r)
                     .foregroundColor(.black)
+                    .font(.system(size: 16))
                     
                 if state_race.market != "" {
                         Text(String(percentageR) + "%")
@@ -142,6 +148,19 @@ struct StateDetailView: View {
             .background(Color(red: 0.9607843137254902, green: 0.9294117647058824, blue: 0.8431372549019608))
             .shadow(color: Color(hue: 0.554, saturation: 0.065, brightness: 0.775), radius: 5, x: 0, y: 10.0)
             
+            
+            
+            // RECOMMENDATION VIEW
+            if state_race.market == "" {
+                NavigationLink(destination: RecommendationView()) {
+                    VStack {
+                        Text("PASS")
+                        Text("DONATE HERE INSTEAD")
+                    }
+                }
+                .buttonStyle(.bordered)
+            }
+            
             if showButtonRecommend {
 //                NavigationLink(destination: DonationLinkView()) {
                     VStack{
@@ -179,7 +198,7 @@ struct StateDetailView: View {
                             let filteredContractsRep = unwrapped.contracts.filter{$0.party == "Republican"}
                             percentageR = Int(filteredContractsRep[0].lastTradePrice * 100)
                             percentage2 = Int(filteredContracts[0].lastTradePrice * 100)
-                            if percentage2 < 75 && percentage2 > 35 {
+                            if percentage2 < 77 && percentage2 > 23 {
                                 showButtonRecommend = true
                             } else {
                                 showButtonPass = true

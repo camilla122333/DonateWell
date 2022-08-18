@@ -28,8 +28,8 @@ struct WelcomeView: View {
                         .cornerRadius(10)
 //                        .foregroundColor(.cyan)
                     NavigationLink(destination: ListView()) {
-                        Text("Start Donating")
-                            .font(MyFont.medium)
+                        Text("START DONATING")
+                            .font(Font.custom("NanumPen", size: 27))
 //                        Button(action: {
 //                            print("hi")
 //                        }, label: {
