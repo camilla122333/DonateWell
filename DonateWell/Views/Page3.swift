@@ -11,15 +11,9 @@ import WebKit
 //<a class="twitter-timeline" href="https://twitter.com/Politics_Polls?ref_src=twsrc%5Etfw">Tweets by Politics_Polls</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 struct Page3: View {
-    @State var text = "<a class=\"twitter-timeline\" href=\"https://twitter.com/Politics_Polls?ref_src=twsrc%5Etfw\">Tweets by Politics_Polls</a> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>"
     
-//    init() {
-//        UINavigationBar.appearance().backgroundColor = .systemPink
-//
-//        UINavigationBar.appearance().largeTitleTextAttributes = [
-//            .foregroundColor: UIColor.white,
-//            .font : UIFont(name:"Helvetica Neue", size: 40)!]
-//    }
+    @State var text = "<a class=\"twitter-timeline\" href=\"https://twitter.com/asterouter/lists/1560148054447034368?ref_src=twsrc%5Etfw\">A Twitter List</a> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>"
+    
     
     var body: some View {
         
@@ -29,7 +23,6 @@ struct Page3: View {
                 .background(Color(hue: 0.494, saturation: 0.138, brightness: 0.964, opacity: 0.941))
                 .edgesIgnoringSafeArea(.all)
         }
-//        .navigationBarTitle("Latest Polls")
     }
 }
 
