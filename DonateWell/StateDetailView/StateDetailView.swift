@@ -153,16 +153,9 @@ struct StateDetailView: View {
             // RECOMMENDATION VIEW
             if state_race.market == "" {
                 Text("NOT EFFECTIVE")
-//                .frame(width: 200, height: 100)
                 .foregroundColor(.red)
-//                .font(Font.title3.weight(.semibold))
                 .font(Font.custom("NanumPen", size: 40))
-//                .background (
-//                    Circle()
-//                        .fill(.white)
-//                        .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
-//                )
-          
+
                 NavigationLink(destination: RecommendationView()) {
                     HStack {
                         Image(systemName: "star.fill")
@@ -175,7 +168,6 @@ struct StateDetailView: View {
                 }
                 .buttonStyle(GradientButtonStyle())
                 .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
-//                .buttonBorderShape(.capsule)
             }
             
             if showButtonRecommend {
